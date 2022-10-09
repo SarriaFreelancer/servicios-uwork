@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Uwork | Services</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header th:fragment="header">
+            <h1 th:text="#{plantilla.titulo}">Titulo</h1>
+    </header>
+        <!-- Cerrar session desde Barra de  Navegacion-->
+        <div th:fragment="cerrar">
+            <form method="POST" th:action="@{/logout}">
+                  
+                    <div class="my my-lg-0">
+                        <button  href="#" type="submit" class="btn btn-outline-success my-2 my-sm-0 ml-4" onclick="this.parentNode.submit();" >Cerrar Sección</button>
+                        
+                    </div>
+                    
+            </form>
+        </div>
+        
+        
+        <footer th:fragment="footer">
+   
+               
+                <form method="POST" th:action="@{/logout}">
+                    <b>User: </b> <span sec:authentication="name">Usuario que hizo login</span> |
+                    <b> Roles: </b> <span sec:authentication="authorities">Roles</span>
+                    <br/>
+                    <div class="my-2 my-lg-0">
+                        
+                        <button href="#" type="submit" class="btn btn-primary" onclick="this.parentNode.submit();" >Cerrar Sección</button>
+                    </div>
+                    
+                </form>
+                 <p> [[#{plantilla.pie-pagina}]] &copy; Mision Tic 2022 <a href="www.google.com">Google</a></p>
+        </footer>
+        
+            
+    </body>
+</html>
